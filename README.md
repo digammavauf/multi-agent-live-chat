@@ -21,4 +21,3 @@ The GitHub Actions workflow checks PHP syntax on PHP 7.4 and 8.3, and JavaScript
 The plugin stores administrator-configured agent details and widget settings in the WordPress options table. It does not collect visitor messages. When a visitor follows a link, the selected third-party service handles the conversation under its own policies.
 
 See [readme.txt](readme.txt) for setup, supported contact formats, privacy notes, and FAQs.
-

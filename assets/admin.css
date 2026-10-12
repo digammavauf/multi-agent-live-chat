@@ -1,0 +1,27 @@
+.wla-admin { max-width: 1040px; }
+.wla-admin > h1 { margin-bottom: 8px; }
+.wla-admin > p { max-width: 800px; color: #50575e; }
+.wla-admin .form-table { margin-top: 20px; }
+.wla-admin .form-table th { width: 210px; }
+.wla-admin .form-table td { padding-top: 15px; padding-bottom: 15px; }
+.wla-admin > h2 { margin-top: 28px; }
+#wla-agents { display: grid; gap: 12px; max-width: 1040px; }
+.wla-admin .wla-agent-row { display: grid; grid-template-columns: minmax(130px, .85fr) minmax(130px, .85fr) minmax(160px, 1fr) minmax(230px, 1.6fr) auto; align-items: end; gap: 12px; margin: 0; padding: 16px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 4%); }
+.wla-admin .wla-agent-row label { display: flex; flex-direction: column; gap: 6px; color: #1d2327; font-weight: 600; }
+.wla-admin .wla-agent-row input, .wla-admin .wla-agent-row select { width: 100%; max-width: none; min-height: 38px; box-sizing: border-box; }
+.wla-admin .wla-agent-row .wla-remove-agent { margin: 0 0 8px 2px; white-space: nowrap; }
+.wla-admin #wla-add-agent { margin-top: 14px; }
+.wla-admin .wla-agent-limit { min-height: 20px; margin: 8px 0; color: #646970; }
+.wla-admin .notice { margin: 16px 0; }
+@media (max-width: 1100px) {
+	.wla-admin .wla-agent-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.wla-admin .wla-agent-row .wla-remove-agent { justify-self: start; margin: 0; }
+}
+@media (max-width: 782px) {
+	.wla-admin { margin-right: 12px; }
+	.wla-admin .form-table th { width: auto; padding-bottom: 4px; }
+	.wla-admin .form-table td { padding-top: 4px; }
+}
+@media (max-width: 480px) {
+	.wla-admin .wla-agent-row { grid-template-columns: minmax(0, 1fr); padding: 12px; }
+}

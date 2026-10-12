@@ -1,0 +1,41 @@
+.wla-contact { position: fixed; z-index: 99999; bottom: calc( 24px + env( safe-area-inset-bottom, 0px ) ); }
+.wla-position-left { left: 24px; }
+.wla-position-right { right: 24px; }
+.wla-contact-button {
+	display: inline-flex; align-items: center; gap: 11px; max-width: min( calc( 100vw - 32px ), 340px );
+	padding: 12px 17px 12px 12px; border: 0; border-radius: 999px; background: #536273; color: #fff;
+	font: 600 14px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-align: left; cursor: pointer;
+	box-shadow: 0 4px 16px rgb(0 0 0 / 22%); transition: transform .18s ease, box-shadow .18s ease;
+}
+.wla-agent-link__avatar--whatsapp { background: #25d366; }
+.wla-agent-link__avatar--viber { background: #7360f2; }
+.wla-agent-link__avatar--messenger { background: #0084ff; }
+.wla-contact-button:hover, .wla-contact-button:focus-visible { color: #fff; transform: translateY(-2px); box-shadow: 0 7px 20px rgb(0 0 0 / 26%); }
+.wla-contact-button:focus-visible, .wla-panel-close:focus-visible, .wla-agent-link:focus-visible { outline: 3px solid #111; outline-offset: 3px; }
+.wla-contact-button__icon { display: grid; flex: 0 0 42px; width: 42px; height: 42px; place-items: center; border-radius: 50%; background: #fff; }
+.wla-contact-button__icon svg { width: 29px; height: 29px; fill: #536273; }
+.wla-contact-button__copy { display: flex; flex-direction: column; min-width: 0; }
+.wla-contact-button__text { overflow-wrap: anywhere; }
+.wla-agent-panel { position: absolute; bottom: 78px; left: 0; width: min( 330px, calc( 100vw - 32px ) ); overflow: hidden; border-radius: 16px; background: #fff; color: #202124; box-shadow: 0 8px 32px rgb(0 0 0 / 22%); font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.wla-position-right .wla-agent-panel { right: 0; left: auto; }
+.wla-agent-panel__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; background: #f6f7f8; }
+.wla-panel-close { border: 0; background: transparent; color: #555; font-size: 25px; line-height: 1; cursor: pointer; }
+.wla-agent-list { max-height: min( 55vh, 360px ); overflow-y: auto; padding: 6px; }
+.wla-agent-link { display: flex; align-items: center; gap: 12px; padding: 11px 10px; border-radius: 10px; color: #202124; text-decoration: none; }
+.wla-agent-link:hover { background: #f3f5f6; color: #111; }
+.wla-agent-link > span:last-child { display: flex; flex-direction: column; }
+.wla-agent-link small { margin-top: 2px; color: #6b7280; font-size: 12px; }
+.wla-agent-link__avatar { display: grid; flex: 0 0 38px; width: 38px; height: 38px; place-items: center; border-radius: 50%; color: #fff; font-weight: 700; }
+@media (min-width: 768px) { .wla-agent-link--show-mobile { display: none; } }
+@media (max-width: 767px) { .wla-agent-link--show-desktop { display: none; } }
+@media (max-width: 480px) {
+	.wla-contact { bottom: calc( 16px + env( safe-area-inset-bottom, 0px ) ); }
+	.wla-position-left { left: 16px; }
+	.wla-position-right { right: 16px; }
+	.wla-contact-button { gap: 8px; padding: 9px 13px 9px 9px; font-size: 13px; }
+	.wla-contact-button__icon { flex-basis: 38px; width: 38px; height: 38px; }
+	.wla-contact-button__icon svg { width: 26px; height: 26px; }
+	.wla-agent-panel { bottom: 68px; max-height: calc( 100vh - 100px - env( safe-area-inset-bottom, 0px ) ); }
+	.wla-agent-list { max-height: calc( 100vh - 170px - env( safe-area-inset-bottom, 0px ) ); }
+}
+@media (prefers-reduced-motion: reduce) { .wla-contact-button { transition: none; } }
