@@ -2,6 +2,7 @@ name: Build plugin release
 
 on:
   push:
+    branches: [main]
     tags: ['v*.*.*']
 
 permissions:
@@ -19,7 +20,23 @@ jobs:
           cp -R assets dist/multi-agent-live-chat/
           cd dist
           zip -qr ../multi-agent-live-chat.zip multi-agent-live-chat
+      - name: Determine release version
+        id: release
+        run: |
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then
+            tag="$GITHUB_REF_NAME"
+          else
+            version="$(sed -n 's/^ \* Version: //p' multi-agent-live-chat.php | head -n 1)"
+            tag="v$version"
+          fi
+          [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" multi-agent-live-chat.zip --title "$GITHUB_REF_NAME" --generate-notes
+        run: |
+          if gh release view "${{ steps.release.outputs.tag }}" >/dev/null 2>&1; then
+            echo "Release ${{ steps.release.outputs.tag }} already exists; bump the plugin Version before publishing changes."
+            exit 0
+          fi
+          gh release create "${{ steps.release.outputs.tag }}" multi-agent-live-chat.zip --title "${{ steps.release.outputs.tag }}" --generate-notes

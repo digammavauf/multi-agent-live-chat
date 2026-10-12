@@ -10,7 +10,7 @@ Upload this directory as `wp-content/plugins/multi-agent-live-chat`, activate **
 
 ## GitHub updates
 
-WordPress checks the public GitHub Releases API for a newer semantic version. Publish a release by pushing a tag such as `v1.0.1`; the release workflow packages the plugin ZIP that WordPress downloads. The tag version must be newer than the plugin's `Version` header.
+WordPress checks the public GitHub Releases API for a newer semantic version. To publish an update, bump the plugin `Version` header and push to `main`, or push a matching tag such as `v1.0.1`. The release workflow builds the ZIP and publishes it on GitHub. The release version must be newer than the installed version.
 
 ## Development checks
 
